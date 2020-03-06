@@ -1,0 +1,51 @@
+<h1>Animals</h1>
+
+<h2>GET All</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <tr *ngFor="let animal of animals">
+    <td>{{ animal.id }}</td>
+    <td>{{ animal.name }}</td>
+  </tr>
+</table>
+
+<h2>GET by ID</h2>
+<form>
+  <label>
+    ID: <input type="text" [(ngModel)]="id" name="id">
+  </label>
+  <button (click)="getAnimal(id)">Get</button>
+</form>
+
+<h3>Result</h3>
+<p *ngFor="let selectedAnimal of selectedAnimals">{{ selectedAnimal.name }}</p>
+
+<h2>POST New Animal</h2>
+<form>
+  <label>
+    Name: <input type="text" [(ngModel)]="newAnimal" name="name">
+  </label>
+  <button (click)="postAnimal(newAnimal)">Post</button>
+</form>
+
+<h2>UPDATE Animal</h2>
+<form>
+  <label>
+    ID: <input type="text" [(ngModel)]="updateID" name="id">
+  </label>
+  <label>
+    Name: <input type="text" [(ngModel)]="updateName" name="name">
+  </label>
+  <button (click)="updateAnimal(updateID, updateName)">Update</button>
+</form>
+
+<h2>DELETE by ID</h2>
+<form>
+  <label>
+    ID: <input type="text" [(ngModel)]="deleteID" name="id">
+  </label>
+  <button (click)="deleteAnimal(deleteID)">Delete</button>
+</form>
